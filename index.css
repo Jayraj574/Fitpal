@@ -1,0 +1,72 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('assets/pexels-leonardho-1552242.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(206, 110, 110, 0.607); /* This makes the image translucent */
+    z-index: 0;
+}
+.container {
+    position: relative;
+    z-index: 1; /* Ensures the form stays on top of the overlay */
+    width: 100%;
+    max-width: 50%;
+    margin: auto;
+    padding: 2rem;
+    background-color: rgb(76, 76, 76); /* Makes the form background translucent */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 100px;
+}
+h2 {
+    font-size: 300%;
+    text-align: center;
+    color: #ffffff;
+}
+label{
+    font-size: 250%;
+    color:#fff;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+    font-size: 150%;
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.btn {
+    font-size: 150%;
+    width: 100%;
+    padding: 12px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #b34040;
+}
+.form-toggle {
+    color:#fff;
+    text-align: center;
+    margin-top: 20px;
+}
+.form-toggle a {
+    color: #b34040;
+    text-decoration: none;
+}
+.form-toggle a:hover {
+    text-decoration: underline;
+}

@@ -1,1 +1,134 @@
-<p>Hello</p>
+<?php include 'database_operations.php'; ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitnessPal - Login / Register</title>
+    <style>    
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('assets/pexels-leonardho-1552242.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(206, 110, 110, 0.607); /* This makes the image translucent */
+            z-index: 0;
+        }
+        .container {
+            position: relative;
+            z-index: 1; /* Ensures the form stays on top of the overlay */
+            width: 100%;
+            max-width: 50%;
+            margin: auto;
+            padding: 2rem;
+            background-color: rgb(76, 76, 76); /* Makes the form background translucent */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 100px;
+        }
+        h2 {
+            font-size: 300%;
+            text-align: center;
+            color: #ffffff;
+        }
+        label{
+            font-size: 250%;
+            color:#fff;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            font-size: 150%;
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .btn {
+            font-size: 150%;
+            width: 100%;
+            padding: 12px;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #b34040;
+        }
+        .form-toggle {
+            color:#fff;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .form-toggle a {
+            color: #b34040;
+            text-decoration: none;
+        }
+        .form-toggle a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        // Toggle between login and registration forms
+        function toggleForm() {
+            var loginForm = document.getElementById('login-form');
+            var registerForm = document.getElementById('register-form');
+
+            // Toggle the forms
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+            } else {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <div id="login-form" class="container">
+        <h2>Login to FitnessPal</h2>
+        <form action="database_operations.php" method="post">
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" name="email" required>
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="password" required>
+            <button type="submit" name="login" class="btn">Login</button>
+        </form>
+        <div class="form-toggle">
+            Don't have an account? <a href="#" onclick="toggleForm()">Register here</a>
+        </div>
+    </div>
+
+    <div id="register-form" class="container" style="display:none;">
+        <h2>Register at FitnessPal</h2>
+        <form action="database_operations.php" method="post">
+            <label for="full-name">Full Name:</label>
+            <input type="text" id="full-name" name="full_name" required>
+            <label for="register-email">Email:</label>
+            <input type="email" id="register-email" name="email" required>
+            <label for="register-password">Password:</label>
+            <input type="password" id="register-password" name="password" required>
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm_password" required>
+            <button type="submit" name="register" class="btn">Register</button>
+        </form>
+        <div class="form-toggle">
+            Already have an account? <a href="#" onclick="toggleForm()">Login here</a>
+        </div>
+    </div>
+</body>
+</html>
